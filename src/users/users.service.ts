@@ -40,4 +40,22 @@ export class UsersService {
             throw new NotFoundException(`User with ID ${id} not found`);
         }
     }
+
+    private readonly default_users = [
+        {
+            name: "admin",
+            email: "admin@gmail.com",
+            password: "strong_password",
+        },
+                {
+            name: "user",
+            email: "just_user@gmail.com",
+            password: "0000",
+        },
+    ];
+
+    async find_by_name(name: string): Promise<any | undefined> {
+        const user = await this.usersRepository.findOneBy({ name });
+        return user; /*this.users.find(user => user.name === name);*/
+    }
 }
