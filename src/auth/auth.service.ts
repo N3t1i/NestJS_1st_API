@@ -10,7 +10,7 @@ export class AuthService {
         private jwtService: JwtService,
     ) {}
 
-    async signIn(
+    /*async signIn(
         username: string, 
         pass: string
     ): Promise<{ access_token: string }> {
@@ -23,7 +23,7 @@ export class AuthService {
         return {
             access_token: await this.jwtService.signAsync(payload),
         };
-    }
+    }*/
 
     async validateUser(username: string, pass: string): Promise<any> {
         const user = await this.usersService.find_by_name(username);
@@ -35,7 +35,7 @@ export class AuthService {
     }
 
     async login(user: any) {
-        const payload = { username: user.usermane, sub: user.userId };
+        const payload = { username: user.name, sub: user.id, email: user.email };
         return {
             access_token: this.jwtService.sign(payload),
         };

@@ -9,9 +9,10 @@ import { AuthGuard } from './auth.guard';
 import { SetMetadata } from '@nestjs/common';
 import { PassportModule } from '@nestjs/passport';
 import { LocalStrategy } from './local.strategy';
+import { JwtStrategy } from './jwt.strategy';
 
-export const IS_PUBLICK_KEY = 'isPublic';
-export const Public = () => SetMetadata(IS_PUBLICK_KEY, true);
+//export const IS_PUBLICK_KEY = 'isPublic';
+//export const Public = () => SetMetadata(IS_PUBLICK_KEY, true);
 
 @Module({
   controllers: [AuthController],
@@ -21,6 +22,7 @@ export const Public = () => SetMetadata(IS_PUBLICK_KEY, true);
       useClass: AuthGuard,
     },*/
     LocalStrategy,
+    JwtStrategy
   ],
   imports: [
     UsersModule,

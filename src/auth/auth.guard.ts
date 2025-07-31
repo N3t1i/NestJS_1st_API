@@ -1,3 +1,5 @@
+//don't use
+
 import {
     CanActivate,
     ExecutionContext,
@@ -7,7 +9,7 @@ import {
 import { JwtService } from '@nestjs/jwt';
 import { jwtConstants } from './constants';
 import { Request } from 'express';
-import { IS_PUBLICK_KEY } from './auth.module';
+//import { IS_PUBLICK_KEY } from './auth.module';
 import { Reflector } from '@nestjs/core';
 
 @Injectable()

@@ -41,13 +41,15 @@ export class UsersService {
         }
     }
 
-    /*private readonly default_users = [
+    /*private readonly users = [
         {
+            userId: 1,
             name: "admin",
             email: "admin@gmail.com",
             password: "strong_password",
         },
-                {
+        {
+            userId: 2,
             name: "user",
             email: "just_user@gmail.com",
             password: "0000",
@@ -58,4 +60,8 @@ export class UsersService {
         const user = await this.usersRepository.findOneBy({ name });
         return user;
     }
+
+    /*async find_like_in_docs(username: string): Promise<any | undefined> {
+    return this.users.find(user => user.name === username);
+    }*/
 }
