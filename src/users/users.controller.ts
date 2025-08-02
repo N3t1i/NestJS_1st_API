@@ -1,8 +1,8 @@
-import { Controller, Get, Post, Body, Param, Delete, Put, ParseIntPipe, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, Put, ParseIntPipe } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './create-user.dto';
 import { UpdateUserDto } from './update-ures.dto';
-import { AuthGuard } from 'src/auth/auth.guard';
+import { Public } from 'src/auth/decorators/public.decorator';
 
 @Controller('users')
 export class UsersController {
@@ -13,6 +13,7 @@ export class UsersController {
         return this.usersService.create(createUserDto);
     }
 
+    //@Public()
     @Get()
     findAll() {
         return this.usersService.findAll();
